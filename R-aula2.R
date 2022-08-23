@@ -1,3 +1,6 @@
+#Vinicius Mendes da Silva
+#Ciência de Dados - CEUB
+
 library(dslabs)
 
 data(murders)
@@ -51,8 +54,6 @@ length(movielens) #numero de colunas
 class(movielens$title) #tipo da variavel title
 class(movielens$genres) #tipo da variavel genres
 length(levels(movielens$genres)) #quantidade de generos
-
-
 
 
 
