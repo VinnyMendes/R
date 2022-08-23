@@ -57,10 +57,8 @@ class(movielens$genres) #tipo da variavel genres
 length(levels(movielens$genres)) #quantidade de generos
 
 
-
-
-
-
+head(movielens)
+str(movielens)
 
 
 
