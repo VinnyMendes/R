@@ -1,5 +1,6 @@
-#Vinicius Mendes da Silva
+#Vinicius Mendes da Silva : https://www.linkedin.com/in/viniciusmendesdasilva/
 #Ciência de Dados - CEUB
+#Atividade sugerida pelo professor Wandre: https://www.linkedin.com/in/wandreveloso/
 
 library(dslabs)
 
