@@ -150,9 +150,98 @@ class(3L)
 
 vetor <- c(1,3,5,"a")
 class(vetor)                #COERSAO
+class(vetor[1])
+
+teste <- as.numeric(vetor[1])
+teste
 
 numerico <- as.numeric(vetor)
 numerico
+
+
+e <- matrix(ncol=2, nrow=2, data= 1:4)
+
+e[2,1]             #2a linha 1 coluna
+
+e[2, ]             #2a linha completa
+
+e[,2]              #2a coluna
+
+e[,1:2]            #1 e 2 coluna
+
+e[1:2, 1]          #1 e 2 linha, 1a coluna
+
+as.data.frame(e)   #converte uma matriz para um dataframe
+
+i <- list(2,3,"c","d", FALSE,2+3i, 4+2i)
+
+class(i)
+
+i[1]
+class(i[1])
+
+library(dslabs)
+data(murders)
+sort(murders$total)
+
+x <- c(31,4,15,92,65)
+x
+sort(x)
+index <- order(x)    #mostra a sequencia de indexes em ordem crescente
+index
+
+x[index]             #mesma coisa que o sort
+
+murders$state[1:10]
+murders$abb[1:10]
+
+index <- order(murders$total)
+murders$state[index]
+
+max(murders$total)
+i_max <- which.max(murders$total)   #atribui o indice do elemento com o maior total a variável i_max
+i_max
+murders$state[i_max]
+
+i_min <- which.min(murders$total)   #atribui o indice do elemento com o maior total a variável i_min
+murders$state[i_min]
+murders
+
+
+i_max <- which.max(murders$total/murders$population)
+murders$state[i_max]
+
+x <- c(31,4,15,92,65)
+x
+rank(x)
+
+
+#original  sort  order  rank
+#  31       04    02    03
+#  04       15    03    01 
+#  15       31    01    02
+#  92       65    05    05
+#  65       92    04    04
+
+
+#order > index levando em consideração o sort / no vetor original, qual a posição do 1o elemento após a ordenação(sort)
+#rank  > index levando em consideração a sequencia original / nao muda a ordem só diz a classificação. / mostra a posição dos elementos
+#do vetor orignal / ex: o 31 é o 3o menor
+
+
+pop <- murders$population
+pop
+pop <- sort(pop)
+pop[1]
+
+
+
+
+
+
+
+
+
 
 
 
