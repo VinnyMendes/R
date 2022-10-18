@@ -452,8 +452,53 @@ filter(murders_nw, rate < 1)
 
 select((filter(murders_nw, rate < 1)), state, rate, rank)
 
-
+library(dslabs)
 data(murders)
 my_states <- murders %>% mutate(rate = total / population * 100000, rank = rank(-rate)) %>% filter(region %in% c("North", "West") & rate < 1) %>% select(state,rate,rank)
   
 my_states
+
+x <- murders$population /10^6
+y <- murders$total
+plot(x,y)
+
+murders <- mutate(murders, rate = total / population * 100000)
+hist(murders$rate)
+
+library(dslabs)
+data(murders)
+population_in_millions <- murders$population/10^6
+total_gun_murders <- murders$total
+plot(population_in_millions, total_gun_murders)
+
+plot(log10(murders$population), total_gun_murders) #o melhor
+plot(log10(population_in_millions), total_gun_murders) #o melhor
+
+plot(population_in_millions, log10(total_gun_murders))
+
+plot(log10(murders$population), log10(total_gun_murders))
+
+
+hist(population_in_millions)
+
+
+boxplot(population~region, data=murders)
+
+murders <- mutate(murders, rate = total / population * 10^5)
+s <- murders %>% filter(region == "West") %>%
+  summarize(minimum = min(rate), median = median(rate), maximum = max(rate))
+s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
