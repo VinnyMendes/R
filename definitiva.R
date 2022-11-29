@@ -484,21 +484,60 @@ hist(population_in_millions)
 
 boxplot(population~region, data=murders)
 
-murders <- mutate(murders, rate = total / population * 10^5)
+murders <- mutate(murders, rate = total / population *10^6)
 s <- murders %>% filter(region == "West") %>%
   summarize(minimum = min(rate), median = median(rate), maximum = max(rate))
 s
 
+library(tidyverse)
+
+filtrado <- filter(murders, region == "West")
+filtrado
+
+min(filtrado$rate)
+
+min(filter(murders, region == "West")$rate)
+
+min(murders$rate[murders$region=="West"])
+
+#install.packages("tidyverse")
+library(tidyverse)
+
+data(mpg)
+str(mpg)
+
+mpg$displ
+mpg$hwy
+
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=displ, y=hwy))
+
+?mpg
+
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=hwy, y=cyl))
 
 
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=class, y=drv))
 
 
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=displ, y=hwy, color= class))
 
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=displ, y=hwy, shape=class))
 
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=displ, y=hwy, alpha=class))
 
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=displ, y=hwy, size=class))
 
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=displ, y=hwy), color='blue')
 
-
-
-
+ggplot(data=mpg) +
+  geom_point(mapping= aes(x=displ, y=hwy)) +
+  facet_wrap(~ class, nrow=2)
 
